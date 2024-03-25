@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout"
 import Home from "../components/pages/Home/Home"
 import ListedBook from "../components/pages/ListedBook/ListedBook"
 import ReadPages from "../components/pages/ReadPages/ReadPages"
+import BookDetails from "../components/pages/BookDetails/BookDetails"
 
 
 
@@ -27,6 +28,10 @@ const Router = createBrowserRouter ([
       {
         path:"/read-pages",
         element:<ReadPages/>
+      },
+      {
+        path:"/book-details/:id",
+        element:<BookDetails/>
       },
     ]
   }
