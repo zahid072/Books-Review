@@ -62,7 +62,7 @@ const Nav = () => {
   }, []);
   return (
     <>
-      <Navbar className="mx-auto max-w-7xl px-2 py-4 shadow-none">
+      <Navbar className="mx-auto max-w-7xl px-0 py-4 shadow-none">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"

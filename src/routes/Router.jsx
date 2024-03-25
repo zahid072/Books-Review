@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import ErrorPage from "../components/pages/ErrorPage/ErrorPage"
 import Layout from "../components/Layout/Layout"
 import Home from "../components/pages/Home/Home"
-import BooksList from "../components/pages/BooksList/BooksList"
+import ListedBook from "../components/pages/ListedBook/ListedBook"
 import ReadPages from "../components/pages/ReadPages/ReadPages"
 
 
@@ -22,7 +22,7 @@ const Router = createBrowserRouter ([
       },
       {
         path:"/listed-book",
-        element:<BooksList/>
+        element:<ListedBook/>
       },
       {
         path:"/read-pages",

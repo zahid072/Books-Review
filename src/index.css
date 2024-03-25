@@ -5,7 +5,7 @@
 
 .active-link {
     border: 2px solid green;
-    color: green;
+    color: #1313130d;
     border-radius: 8px;
     /* Add any additional styles for the active link */
   }
