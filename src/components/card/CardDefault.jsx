@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 const CardDefault = ({ book }) => {
   const { bookName, bookId, author, image, rating, category, tags } = book;
   return (
-    <div>
+    <div className="w-full">
       <Link to={`/book-details/${bookId}`}>
-        <Card className="mt-6 shadow-none border-2 p-5">
-          <CardHeader className="m-0 w-[374px] bg-[#F3F3F3] shadow-none h-56">
+        <Card className="mt-6 w-full shadow-none border-2 p-5">
+          <CardHeader className="m-0 max-w-[374px] bg-[#F3F3F3] shadow-none h-56">
             <img className="h-56 mx-auto" src={image} alt="card-image" />
           </CardHeader>
           <CardBody className="p-0 mt-8">
@@ -38,8 +38,8 @@ const CardDefault = ({ book }) => {
           </CardBody>
           <CardFooter className="border-t-2 flex justify-between px-0 pb-0 mt-5 border-dashed">
             <h1 className="font-bold">{category}</h1>
-            <h1>
-              {rating} <CiStar className="inline text-2xl" />
+            <h1 className="flex items-center gap-2">
+              <span>{rating}</span> <CiStar className="inline text-2xl" />
             </h1>
           </CardFooter>
         </Card>

@@ -4,7 +4,10 @@ import Layout from "../components/Layout/Layout"
 import Home from "../components/pages/Home/Home"
 import ListedBook from "../components/pages/ListedBook/ListedBook"
 import ReadPages from "../components/pages/ReadPages/ReadPages"
-import BookDetails from "../components/pages/BookDetails/BookDetails"
+import BookDetails from "../components/BookDetails/BookDetails"
+import NewRelease from "../components/pages/newReleases/NewRelease"
+import Read from "../components/pages/ReadBooks/Read"
+import Wishlist from "../components/pages/wishlistBooks/Wishlist"
 
 
 
@@ -23,11 +26,29 @@ const Router = createBrowserRouter ([
       },
       {
         path:"/listed-book",
-        element:<ListedBook/>
+        element:<ListedBook/>,
+        children:[
+            {
+              path:"/listed-book",
+              element:<Read/>
+            }, 
+            {
+              path:"/listed-book/read-books",
+              element:<Read/>
+            },
+            {
+              path:"/listed-book/wishlist-books",
+              element:<Wishlist/>
+            }
+        ]
       },
       {
         path:"/read-pages",
         element:<ReadPages/>
+      },
+      {
+        path:"/new-releases",
+        element:<NewRelease/>
       },
       {
         path:"/book-details/:id",

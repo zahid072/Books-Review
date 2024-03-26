@@ -11,16 +11,14 @@ import { Link, useLocation } from "react-router-dom";
 
 function NavList() {
   const location = useLocation();
-  console.log(location);
   return (
-    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 text-center lg:flex-row lg:p-1">
+    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 text-center lg:flex-row *:transition lg:p-1">
       <Typography variant="small" color="blue-gray" className="font-medium">
         <Link
           to="/"
-          exact
-          className={`flex items-center font-semibold gap-2 py-2 px-4 ${
-            location.pathname === "/" &&
-            "border border-[#23BE0A] rounded-lg text-[#23BE0A]"
+          className={`flex items-center gap-2 py-2 px-4 ${
+            location.pathname === "/" ?
+            "border border-[#23BE0A] font-semibold rounded-lg text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white":"hover:bg-[#7876760f] hover:border-2 rounded-lg"
           }`}
         >
           Home
@@ -29,9 +27,9 @@ function NavList() {
       <Typography variant="small" color="blue-gray" className="font-medium">
         <Link
           to="/listed-book"
-          className={`flex items-center font-semibold gap-2 py-2 px-4 ${
-            location.pathname === "/listed-book" &&
-            "border border-[#23BE0A] rounded-lg text-[#23BE0A]"
+          className={`flex items-center gap-2 py-2 px-4 ${
+            location.pathname === "/listed-book" ?
+            "border border-[#23BE0A] font-semibold rounded-lg text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white":"hover:bg-[#7876760f] hover:border-2 rounded-lg"
           }`}
         >
           Listed Books
@@ -40,14 +38,26 @@ function NavList() {
       <Typography variant="small" color="blue-gray" className="font-medium">
         <Link
           to="/read-pages"
-          className={`flex items-center font-semibold gap-2 py-2 px-4 ${
-            location.pathname === "/read-pages" &&
-            "border border-[#23BE0A] rounded-lg text-[#23BE0A]"
+          className={`flex items-center gap-2 py-2 px-4 ${
+            location.pathname === "/read-pages" ?
+            "border border-[#23BE0A] font-semibold rounded-lg text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white":"hover:bg-[#7876760f] hover:border-2 rounded-lg"
           }`}
         >
           Pages to Read
         </Link>
       </Typography>
+      <Typography variant="small" color="blue-gray" className="font-medium">
+    <Link
+      to="/new-releases"
+      className={`flex items-center gap-2 py-2 px-4 ${
+        location.pathname === "/new-releases" ?
+        "border border-[#23BE0A] font-semibold rounded-lg text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white":"hover:bg-[#7876760f] hover:border-2 rounded-lg"
+      }`}
+    >
+      New Releases
+    </Link>
+  </Typography>
+
     </List>
   );
 }

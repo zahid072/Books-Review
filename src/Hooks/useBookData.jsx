@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 
 const useBookData = () => {
     const [bookData, setBookData] = useState([]);
-
     useEffect(() => {
-        const fetchBook = async ()=>{
-            const res = await fetch('./books.json')
-            const data = await res.json()
-
+        fetch("https://zahid072.github.io/book-data/books.json")
+        .then(res => res.json())
+        .then(data => {
             setBookData(data)
-        }
-        fetchBook();
+        })
     }, []);
   return {bookData}
 }
