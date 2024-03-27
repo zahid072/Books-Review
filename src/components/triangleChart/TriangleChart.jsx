@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BarChart, Bar, Cell, XAxis, YAxis } from "recharts";
-import useBookData from "../../Hooks/useBookData";
+import useFilterData from "../../Hooks/useFilterData";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
@@ -21,16 +21,8 @@ const TriangleBar = (props) => {
   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
 };
 const TriangleChart = () => {
+  const { filteredData } = useFilterData();
   const [windowWidth, setWindowWidth] = useState(window.outerWidth);
-  const [filteredData, setFilteredData] = useState([]);
-  const { bookData } = useBookData();
-  useEffect(() => {
-    const filterBookData = bookData.filter((book) => book.totalPages > 300);
-    if (filterBookData) {
-      setFilteredData(filterBookData);
-    }
-  }, [bookData]);
-  console.log(window);
 
   // for responsive
   const handleResize = () => {
