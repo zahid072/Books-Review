@@ -58,12 +58,12 @@ const BooksList = () => {
       </div>
           {
             isValue && (
-              <Read/>
+              <Read sortBy={sortBy}/>
             )
           }
           {
             !isValue && (
-              <Wishlist/>
+              <Wishlist sortBy={sortBy}/>
             )
           }
     </div>

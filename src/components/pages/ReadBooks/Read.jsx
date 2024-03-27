@@ -2,27 +2,36 @@ import React, { useEffect, useState } from "react";
 import ListedBookCard from "../../listedBookCard/ListedBookCard";
 import { getStoredBooks } from "../../../Utility/LocalStorage";
 import useBookData from "../../../Hooks/useBookData";
-const Read = () => {
+const Read = ({ sortBy }) => {
   const [allBooks, setAllBooks] = useState([]);
   const { bookData } = useBookData();
   const getReadId = getStoredBooks("readBook");
 
   useEffect(() => {
     const bookArry = [];
-    for (let id of getReadId) { 
+    for (let id of getReadId) {
       const filteredBooks = bookData.find((book) => book.bookId === id);
       bookArry.push(filteredBooks);
     }
-    if (bookArry.length > 0) {
-      setAllBooks(bookArry);
+    const sorted = bookArry.sort((a, b) => {
+      if (sortBy === "rating") {
+        return b.rating - a.rating;
+      } else if (sortBy === "numberOfPages") {
+        return b.totalPages - a.totalPages;
+      } else if (sortBy === "publisherYear") {
+        return b.yearOfPublishing - a.yearOfPublishing;
+      }
+    });
+    if (sorted) {
+      setAllBooks(sorted);
     }
-  }, [bookData]);
-  
+  }, [bookData, getReadId, sortBy]);
+
   return (
     <>
-      {
-        allBooks.map((book, index)=> <ListedBookCard key={index} book={book} />)
-      }
+      {allBooks.map((book, index) => (
+        <ListedBookCard key={index} book={book} />
+      ))}
     </>
   );
 };

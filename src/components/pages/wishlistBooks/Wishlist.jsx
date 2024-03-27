@@ -3,7 +3,7 @@ import ListedBookCard from "../../listedBookCard/ListedBookCard";
 import useBookData from "../../../Hooks/useBookData";
 import { getStoredBooks } from "../../../Utility/LocalStorage";
 
-const Wishlist = () => {
+const Wishlist = ({ sortBy }) => {
   const [allBooks, setAllBooks] = useState([]);
   const { bookData } = useBookData();
   const getReadId = getStoredBooks("wishlistBook");
@@ -17,10 +17,19 @@ const Wishlist = () => {
       console.log("object", filteredBooks);
       bookArry.push(filteredBooks);
     }
-    if (bookArry.length > 0) {
-      setAllBooks(bookArry);
+    const sorted = bookArry.sort((a, b) => {
+      if (sortBy === "rating") {
+        return b.rating - a.rating;
+      } else if (sortBy === "numberOfPages") {
+        return b.totalPages - a.totalPages;
+      } else if (sortBy === "publisherYear") {
+        return b.yearOfPublishing - a.yearOfPublishing;
+      }
+    });
+    if (sorted) {
+      setAllBooks(sorted);
     }
-  }, [bookData]);
+  }, [bookData, sortBy, getReadId]);
   console.log(allBooks);
   return (
     <>
