@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BarChart, Bar, Cell, XAxis, YAxis } from "recharts";
 import useFilterData from "../../Hooks/useFilterData";
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "#15799D"];
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
@@ -22,23 +22,12 @@ const TriangleBar = (props) => {
 };
 const TriangleChart = () => {
   const { filteredData } = useFilterData();
-  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
-
-  // for responsive
-  const handleResize = () => {
-    setWindowWidth(window.outerWidth);
-  };
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  
   return (
     <>
       <BarChart
-        width={windowWidth > 1024 ? 800 : 400}
-        height={windowWidth > 1024 ? 500 : 200}
+        width={1000}
+        height={500}
         data={filteredData}
         margin={{
           top: 20,

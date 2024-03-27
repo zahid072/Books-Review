@@ -39,7 +39,7 @@ const CardDefault = ({ book }) => {
           <CardFooter className="border-t-2 flex justify-between px-0 pb-0 mt-5 border-dashed">
             <h1 className="font-bold">{category}</h1>
             <h1 className="flex items-center gap-2">
-              <span>{rating}</span> <CiStar className="inline text-2xl" />
+              <span>{rating}</span> <CiStar className="inline text-3xl" />
             </h1>
           </CardFooter>
         </Card>

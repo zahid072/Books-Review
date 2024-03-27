@@ -3,7 +3,7 @@ import TriangleChart from '../../triangleChart/TriangleChart'
 
 const ReadPages = () => {
   return (
-    <div className='w-full h-full flex mt-10 justify-center'>
+    <div className='w-full h-full flex md:mt-10 -mt-20 justify-center'>
       <TriangleChart/>
     </div>
   )

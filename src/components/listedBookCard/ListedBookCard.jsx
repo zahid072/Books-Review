@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { MdDateRange } from "react-icons/md";
+import { MdFindInPage } from "react-icons/md";
+import { FiUsers } from "react-icons/fi";
 import { Link } from "react-router-dom";
 const ListedBookCard = ({ book }) => {
   const [data, setData] = useState({});
@@ -51,11 +54,11 @@ const ListedBookCard = ({ book }) => {
               </h3>
             </div>
 
-            <p>Year of Publishing: {yearOfPublishing}</p>
+            <p><MdDateRange className="inline text-2xl"/> Year of Publishing: {yearOfPublishing}</p>
           </div>
           <div className="md:flex justify-start items-center gap-8">
-            <p className="mb-4 md:mb-0">Publisher: {publisher}</p>
-            <p>Pages: {totalPages}</p>
+            <p className="mb-4 md:mb-0"><FiUsers className="inline text-2xl"/> Publisher: {publisher}</p>
+            <p><MdFindInPage className="inline text-2xl"/> Pages: {totalPages}</p>
           </div>
 
           <div className="flex md:flex-row flex-col justify-start border-t-2 pt-4 md:items-center gap-8">
