@@ -21,10 +21,10 @@ const CardDefault = ({ book }) => {
           <CardBody className="p-0 mt-8">
             <div className="flex gap-4 mb-4">
               <h3 className="px-3 py-1 rounded-full bg-[#23be0a0d] text-[#23BE0A]">
-                {tags[0]}
+                {tags?.[0]}
               </h3>
               <h3 className="px-3 py-1 rounded-full bg-[#23be0a0d] text-[#23BE0A]">
-                {tags[1]}
+                {tags?.[1]}
               </h3>
             </div>
             <Typography

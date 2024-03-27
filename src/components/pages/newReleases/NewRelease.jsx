@@ -22,7 +22,7 @@ const NewRelease = () => {
       <h1 className="text-center md:text-5xl text-3xl font-bold py-5">
         New Releases Books
       </h1>
-      <div className="grid grid-cols-3 gap-6 justify-items-center">
+      <div className="grid md:grid-cols-3 gap-6 justify-items-center">
         {books.map((book, index) => (
           <CardDefault key={index} book={book} />
         ))}
