@@ -1,8 +1,6 @@
 import React from 'react'
-import useBookData from '../../../Hooks/useBookData'
-
-const Read = () => {
-    
+const Read = ({Read}) => {
+    console.log(Read)
   return (
     <div>
       Read...

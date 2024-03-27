@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import Read from "../ReadBooks/Read";
+import Wishlist from "../wishlistBooks/Wishlist";
 
 const BooksList = () => {
-  const location = useLocation();
+  const [isValue, setIsValue] = useState(true);
   const [sortBy, setSortBy] = useState("");
 
   const handleSelect = (e) => {
     setSortBy(e.target.value);
+  };
+  const handleReadNavigation = () => {
+   setIsValue(true)
+  };
+  const handleWishlistNavigation = () => {
+   setIsValue(false)
   };
   console.log(location);
   return (
@@ -35,27 +42,31 @@ const BooksList = () => {
         </select>
       </div>
       <div className="flex w-full mb-5">
-        <Link
-          className={`py-2 px-6 ${
-            location.pathname === "/listed-book" ? " border-x-2 border-t-2 rounded-t-lg" : "border-b-2"
-          }`}
-          to={"/listed-book"}
+        <button
+        onClick={handleReadNavigation}
+          className={`py-2 px-6 ${isValue === true ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}
+          `}
         >
           Read
-        </Link>
-        <Link
-          className={`py-2 px-6 ${
-            location.pathname === "/listed-book/wishlist-books"
-              ? " border-x-2 border-t-2 rounded-t-lg" : "border-b-2"
-          }`}
-          to={"/listed-book/wishlist-books"}
+        </button>
+        <button
+        onClick={handleWishlistNavigation}
+          className={`py-2 px-6 ${isValue === false ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}`}
         >
           Wishlist
-        </Link>
-
+        </button>
         <div className="border-b-2 w-full py-2"></div>
       </div>
-      <Outlet />
+          {
+            isValue && (
+              <Read/>
+            )
+          }
+          {
+            !isValue && (
+              <Wishlist/>
+            )
+          }
     </div>
   );
 };

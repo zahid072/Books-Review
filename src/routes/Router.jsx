@@ -27,20 +27,6 @@ const Router = createBrowserRouter ([
       {
         path:"/listed-book",
         element:<ListedBook/>,
-        children:[
-            {
-              path:"/listed-book",
-              element:<Read/>
-            }, 
-            {
-              path:"/listed-book/read-books",
-              element:<Read/>
-            },
-            {
-              path:"/listed-book/wishlist-books",
-              element:<Wishlist/>
-            }
-        ]
       },
       {
         path:"/read-pages",
