@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useBookData from "../../Hooks/useBookData";
+import { getStoredBooks, saveBooks } from "../../Utility/LocalStorage";
 
 const BookDetails = () => {
-  const bookId = useParams();
+  const clickId = useParams();
   const {bookData} = useBookData();
   const [data, setData] = useState({});
-  const { image, bookName, author, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = data;
+  const { image, bookId,  bookName, author, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = data;
   useEffect(() => {
-        const findBookData = bookData.find((book) => bookId.id == book.bookId);
+        const findBookData = bookData.find((book) => clickId.id == book.bookId);
         if(findBookData){
           setData(findBookData);
         }
-  }, [bookData, bookId]);
- 
+  }, [bookData, clickId]);
+
+  // add local Storage
+  
+  const handleRead = ()=>{
+    getStoredBooks("readBook");
+    saveBooks(bookId, "readBook")
+  }
+   const handleWishlist = ()=>{
+    const getReadId = getStoredBooks("readBook")
+    getStoredBooks("wishlistBook");
+    if(!getReadId.includes(bookId)){
+      saveBooks(bookId, "wishlistBook")
+    }else{
+      alert("Already add to read")
+    }
+   }
   return (
    <>
     <div className="w-full h-full flex gap-12 md:flex-row flex-col">
@@ -50,13 +66,13 @@ const BookDetails = () => {
         </div>
         <div className="flex gap-4">
           <button
-            variant="text"
+            onClick={handleRead}
             className="px-4 py-2 border-2 rounded-lg hover:bg-[#23BE0A] hover:text-white text-black"
           >
             Read
           </button>
           <button
-            variant="text"
+            onClick={handleWishlist}
             className="px-4 py-2 rounded-lg bg-[#50B1C9] hover:bg-[#469cb2] text-white"
           >
             Wishlist

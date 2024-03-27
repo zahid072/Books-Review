@@ -15,7 +15,6 @@ const BooksList = () => {
   const handleWishlistNavigation = () => {
    setIsValue(false)
   };
-  console.log(location);
   return (
     <div>
       <div className="w-full rounded-xl py-8 text-center bg-[#1313130d]">
