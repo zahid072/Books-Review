@@ -22,7 +22,7 @@ const ListedBookCard = ({ book }) => {
       setData(book);
     }
   }, [book]);
-  console.log(author);
+
 
   return (
     <div className="mb-6">

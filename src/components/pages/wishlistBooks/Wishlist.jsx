@@ -29,13 +29,18 @@ const Wishlist = ({ sortBy }) => {
     if (sorted) {
       setAllBooks(sorted);
     }
-  }, [bookData, sortBy, getReadId]);
+  }, [bookData, sortBy]);
   console.log(allBooks);
   return (
     <>
       {allBooks.map((book, index) => (
         <ListedBookCard key={index} book={book} />
       ))}
+      {
+        allBooks.length === 0 && (
+          <img className="md:size-[400px] size-72" src="https://i.ibb.co/JtXPDMp/search-magnifier-magnifying-emoj.png" alt="" />
+        )
+      }
     </>
   );
 };

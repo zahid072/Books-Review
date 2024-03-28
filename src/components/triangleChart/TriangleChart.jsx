@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { BarChart, Bar, Cell, XAxis, YAxis } from "recharts";
 import useFilterData from "../../Hooks/useFilterData";
 
@@ -25,7 +24,9 @@ const TriangleChart = () => {
   
   return (
     <>
-      <BarChart
+      {
+        filteredData.length>0 && (
+          <BarChart
         width={1000}
         height={500}
         data={filteredData}
@@ -49,6 +50,13 @@ const TriangleChart = () => {
           ))}
         </Bar>
       </BarChart>
+        )
+      }
+      {
+        filteredData.length === 0 && (
+          <img className="md:size-[400px] size-72" src="https://i.ibb.co/LkMP19m/page-empty.png" alt="" />
+        )
+      }
     </>
   );
 };

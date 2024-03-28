@@ -43,16 +43,16 @@ const BooksList = () => {
       <div className="flex w-full mb-5">
         <button
         onClick={handleReadNavigation}
-          className={`py-2 px-6 ${isValue === true ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}
+          className={`py-2 px-6 text-nowrap ${isValue === true ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}
           `}
         >
-          Read
+          Read books
         </button>
         <button
         onClick={handleWishlistNavigation}
-          className={`py-2 px-6 ${isValue === false ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}`}
+          className={`py-2 px-6 text-nowrap ${isValue === false ? "border-x-2 border-t-2 rounded-t-lg": "border-b-2"}`}
         >
-          Wishlist
+          Wishlist Books
         </button>
         <div className="border-b-2 w-full py-2"></div>
       </div>
