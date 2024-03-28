@@ -23,7 +23,6 @@ const ListedBookCard = ({ book }) => {
     }
   }, [book]);
 
-
   return (
     <div className="mb-6">
       <div className="md:flex w-full border-2 p-5 rounded-lg space-x-2 sm:space-x-4">
@@ -54,11 +53,18 @@ const ListedBookCard = ({ book }) => {
               </h3>
             </div>
 
-            <p><MdDateRange className="inline text-2xl"/> Year of Publishing: {yearOfPublishing}</p>
+            <p>
+              <MdDateRange className="inline text-2xl" /> Year of Publishing:{" "}
+              {yearOfPublishing}
+            </p>
           </div>
           <div className="md:flex justify-start items-center gap-8">
-            <p className="mb-4 md:mb-0"><FiUsers className="inline text-2xl"/> Publisher: {publisher}</p>
-            <p><MdFindInPage className="inline text-2xl"/> Pages: {totalPages}</p>
+            <p className="mb-4 md:mb-0">
+              <FiUsers className="inline text-2xl" /> Publisher: {publisher}
+            </p>
+            <p>
+              <MdFindInPage className="inline text-2xl" /> Pages: {totalPages}
+            </p>
           </div>
 
           <div className="flex md:flex-row flex-col justify-start border-t-2 pt-4 md:items-center gap-8">

@@ -8,13 +8,10 @@ const Wishlist = ({ sortBy }) => {
   const { bookData } = useBookData();
   const getReadId = getStoredBooks("wishlistBook");
 
-  console.log(getReadId);
   useEffect(() => {
     const bookArry = [];
     for (let id of getReadId) {
-      console.log(id);
       const filteredBooks = bookData.find((book) => book.bookId === id);
-      console.log("object", filteredBooks);
       bookArry.push(filteredBooks);
     }
     const sorted = bookArry.sort((a, b) => {
@@ -30,17 +27,19 @@ const Wishlist = ({ sortBy }) => {
       setAllBooks(sorted);
     }
   }, [bookData, sortBy]);
-  console.log(allBooks);
+
   return (
     <>
       {allBooks.map((book, index) => (
         <ListedBookCard key={index} book={book} />
       ))}
-      {
-        allBooks.length === 0 && (
-          <img className="md:size-[400px] size-72" src="https://i.ibb.co/JtXPDMp/search-magnifier-magnifying-emoj.png" alt="" />
-        )
-      }
+      {allBooks.length === 0 && (
+        <img
+          className="md:size-[400px] size-72"
+          src="https://i.ibb.co/JtXPDMp/search-magnifier-magnifying-emoj.png"
+          alt=""
+        />
+      )}
     </>
   );
 };

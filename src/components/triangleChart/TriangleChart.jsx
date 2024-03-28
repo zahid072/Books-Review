@@ -21,42 +21,42 @@ const TriangleBar = (props) => {
 };
 const TriangleChart = () => {
   const { filteredData } = useFilterData();
-  
+
   return (
     <>
-      {
-        filteredData.length>0 && (
-          <BarChart
-        width={1000}
-        height={500}
-        data={filteredData}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <XAxis dataKey="bookName" />
-        <YAxis />
-        <Bar
-          dataKey="totalPages"
-          fill="#8884d8"
-          shape={<TriangleBar />}
-          label={{ position: "top" }}
+      {filteredData.length > 0 && (
+        <BarChart
+          width={1000}
+          height={500}
+          data={filteredData}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
-          {filteredData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-          ))}
-        </Bar>
-      </BarChart>
-        )
-      }
-      {
-        filteredData.length === 0 && (
-          <img className="md:size-[400px] size-72" src="https://i.ibb.co/LkMP19m/page-empty.png" alt="" />
-        )
-      }
+          <XAxis dataKey="bookName" />
+          <YAxis />
+          <Bar
+            dataKey="totalPages"
+            fill="#8884d8"
+            shape={<TriangleBar />}
+            label={{ position: "top" }}
+          >
+            {filteredData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+            ))}
+          </Bar>
+        </BarChart>
+      )}
+      {filteredData.length === 0 && (
+        <img
+          className="md:size-[400px] size-72"
+          src="https://i.ibb.co/LkMP19m/page-empty.png"
+          alt=""
+        />
+      )}
     </>
   );
 };

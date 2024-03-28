@@ -8,6 +8,7 @@ import BookDetails from "../components/BookDetails/BookDetails"
 import NewRelease from "../components/pages/newReleases/NewRelease"
 import Read from "../components/pages/ReadBooks/Read"
 import Wishlist from "../components/pages/wishlistBooks/Wishlist"
+import Recommendation from "../components/pages/Recommendation/Recommendation"
 
 
 
@@ -35,6 +36,10 @@ const Router = createBrowserRouter ([
       {
         path:"/new-releases",
         element:<NewRelease/>
+      },
+      {
+        path:"/recommendations",
+        element:<Recommendation/>
       },
       {
         path:"/book-details/:id",

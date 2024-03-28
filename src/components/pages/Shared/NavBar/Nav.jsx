@@ -57,6 +57,18 @@ function NavList() {
       New Releases
     </Link>
   </Typography>
+  <Typography variant="small" color="blue-gray" className="font-medium">
+  <Link
+    to="/recommendations"
+    className={`flex items-center gap-2 py-2 px-4 ${
+      location.pathname === "/recommendations" ?
+      "border border-[#23BE0A] font-semibold rounded-lg text-[#23BE0A] hover:bg-[#23BE0A] hover:text-white" :
+      "hover:bg-[#7876760f] hover:border-2 rounded-lg"
+    }`}
+  >
+    Recommendations
+  </Link>
+</Typography>
 
     </List>
   );
@@ -86,10 +98,10 @@ const Nav = () => {
             <NavList />
           </div>
           <div className="hidden gap-2 lg:flex">
-            <button className="px-4 py-2 rounded-lg bg-[#23BE0A] text-white font-semibold">
+            <button className="px-6 py-3 rounded-lg bg-[#23BE0A] text-white font-semibold">
               Sign In
             </button>
-            <button className="px-4 py-2 rounded-lg bg-[#59C6D2] text-white font-semibold">
+            <button className="px-6 py-3 rounded-lg bg-[#59C6D2] text-white font-semibold">
               Sign Up
             </button>
           </div>
